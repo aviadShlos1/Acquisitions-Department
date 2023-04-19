@@ -1,0 +1,3 @@
+We built a DataBase for the acqusition department in JCT academic. 
+It based on sql language, including various complex queries, trrigers, procedures and rutines. 
+The DB has a php based GUI that allows to write, change and delete data from the different tabels, and activate all the queries in the system.
