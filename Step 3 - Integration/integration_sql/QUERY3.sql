@@ -1,0 +1,16 @@
+select substr(T.odate,4,4)
+from(select odate,quantity
+     from HGOREN.EQUIPMENT natural join my_order
+     where equipmentID_ = eqid
+     and  equipmentID_ NOT IN (SELECT EQID
+                             FROM LOGISTIC)
+     AND  equipmentID_ NOT IN (SELECT EQID
+                             FROM TECHNOLOGY)
+      group by odate,quantity)T
+where T.quantity >= all (select quantity
+                          from HGOREN.EQUIPMENT natural join my_order
+                           where equipmentID_ = eqid
+                           and  equipmentID_ NOT IN (SELECT EQID
+                                                     FROM LOGISTIC)
+                            AND  equipmentID_ NOT IN (SELECT EQID
+                                                     FROM TECHNOLOGY))
