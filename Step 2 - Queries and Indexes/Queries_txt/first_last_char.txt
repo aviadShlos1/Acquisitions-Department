@@ -1,0 +1,7 @@
+and efirst not in (
+select efirst from employee 
+where substr(efirst,1,1) <> 'A')
+
+and su.sname not in (
+select sname from supplier 
+where substr(sname,1,-1) <> 'b')
