@@ -1,7 +1,0 @@
-select * 
-from employee
-where eid not in (select eid 
-                 from employee E
-                 where length(efirst)> (select length(E.elast)
-                                         from employee
-                                         where E.Eid = eid ))
